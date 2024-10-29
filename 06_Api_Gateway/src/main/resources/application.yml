@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: Api-Gateway
+  cloud:
+    gateway:
+      routes:
+        - id: microservice1-route
+          uri: lb://Greet-Api
+          predicates:
+            - Path=/greet
+        - id: microservice2-route
+          uri: lb://Welcome-Api
+          predicates:
+            - Path=/welcome
+
+server:
+  port: 8088
+  
